@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Attendance System - Advanced Web Programming</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+  <!-- Your jQuery exercises -->
+  <script src="jquery.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+  <!-- YOUR EXISTING HTML CONTENT HERE - KEEP EVERYTHING ELSE THE SAME -->
+  <header>
+    <h1>Attendance System</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#attendance">Attendance List</a>
+      <a href="#add-student">Add Student</a>
+      <a href="#reports">Reports</a>
+      <a href="#">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Attendance Section -->
+    <section id="attendance">
+      <h2>Attendance List</h2>
+
+      <!-- SEARCH AND SORT CONTROLS ADDED HERE -->
+      <div class="search-sort-controls">
+        <div class="form-row">
+          <label for="search-name">Search by Name:</label>
+          <input type="text" id="search-name" placeholder="Type first or last name...">
+        </div>
+        
+        <div class="sort-buttons">
+          <button id="sort-absences">Sort by Absences (Ascending)</button>
+          <button id="sort-participation">Sort by Participation (Descending)</button>
+        </div>
+        
+        <div id="sort-message" class="sort-message">Currently sorted by: None</div>
+      </div>
+
+      <table id="attendance-table" class="attendance-table">
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th colspan="6">Sessions (Present)</th>
+            <th colspan="6">Participation (P)</th>
+            <th>Absences</th>
+            <th>Participation Count</th>
+            <th>Message</th>
+          </tr>
+          <tr class="subhead">
+            <th></th><th></th><th></th>
+            <th>S1</th><th>S2</th><th>S3</th><th>S4</th><th>S5</th><th>S6</th>
+            <th>P1</th><th>P2</th><th>P3</th><th>P4</th><th>P5</th><th>P6</th>
+            <th></th><th></th><th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="student-row">
+            <td class="sid">1001</td>
+            <td class="lname">Ahmed</td>
+            <td class="fname">Sara</td>
+            <td><input type="checkbox" class="s"></td>
+            <td><input type="checkbox" class="s"></td>
+            <td><input type="checkbox" class="s"></td>
+            <td><input type="checkbox" class="s"></td>
+            <td><input type="checkbox" class="s"></td>
+            <td><input type="checkbox" class="s"></td>
+            <td><input type="checkbox" class="p"></td>
+            <td><input type="checkbox" class="p"></td>
+            <td><input type="checkbox" class="p"></td>
+            <td><input type="checkbox" class="p"></td>
+            <td><input type="checkbox" class="p"></td>
+            <td><input type="checkbox" class="p"></td>
+            <td class="absences">6</td>
+            <td class="participation-count">0</td>
+            <td class="message-cell"></td>
+          </tr>
+          <tr class="student-row">
+            <td class="sid">1002</td>
+            <td class="lname">Yacine</td>
+            <td class="fname">Ali</td>
+            <td><input type="checkbox" class="s"></td>
+            <td><input type="checkbox" class="s"></td>
+            <td><input type="checkbox" class="s"></td>
+            <td><input type="checkbox" class="s"></td>
+            <td><input type="checkbox" class="s"></td>
+            <td><input type="checkbox" class="s"></td>
+            <td><input type="checkbox" class="p"></td>
+            <td><input type="checkbox" class="p"></td>
+            <td><input type="checkbox" class="p"></td>
+            <td><input type="checkbox" class="p"></td>
+            <td><input type="checkbox" class="p"></td>
+            <td><input type="checkbox" class="p"></td>
+<td class="absences">6</td>
+            <td class="participation-count">0</td>
+            <td class="message-cell"></td>
+          </tr>
+          <tr class="student-row">
+            <td class="sid">1003</td>
+            <td class="lname">Rania</td>
+            <td class="fname">Houcine</td>
+            <td><input type="checkbox" class="s"></td>
+            <td><input type="checkbox" class="s"></td>
+            <td><input type="checkbox" class="s"></td>
+            <td><input type="checkbox" class="s"></td>
+            <td><input type="checkbox" class="s"></td>
+            <td><input type="checkbox" class="s"></td>
+            <td><input type="checkbox" class="p"></td>
+            <td><input type="checkbox" class="p"></td>
+            <td><input type="checkbox" class="p"></td>
+            <td><input type="checkbox" class="p"></td>
+            <td><input type="checkbox" class="p"></td>
+            <td><input type="checkbox" class="p"></td>
+            <td class="absences">6</td>
+            <td class="participation-count">0</td>
+            <td class="message-cell"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="controls">
+        <button id="show-report-btn">Show Report</button>
+        <button id="highlight-excellent">Highlight Excellent Students</button>
+        <button id="reset-colors">Reset Colors</button>
+      </div>
+    </section>
+
+    <!-- Add Student -->
+    <section id="add-student">
+      <h2>Add Student</h2>
+      <form id="student-form" action="form.php" method="POST" novalidate>
+        <div class="form-row">
+          <label for="student-id">Student ID</label>
+          <input id="student-id" />
+        </div>
+        <div class="form-row">
+          <label for="last-name">Last Name</label>
+          <input id="last-name" />
+        </div>
+        <div class="form-row">
+          <label for="first-name">First Name</label>
+          <input id="first-name" />
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" />
+        </div>
+        <div class="form-row">
+          <button type="submit" id="submit-student">Submit</button>
+          <span id="confirmation" class="confirmation"></span>
+        </div>
+      </form>
+    </section>
+
+    <!-- Reports -->
+    <section id="reports">
+      <h2>Reports</h2>
+      <div id="report-summary">
+        <p>Total students: <span id="total-students">0</span></p>
+        <p>Students with attendance: <span id="students-present">0</span></p>
+        <p>Students with participation: <span id="students-participated">0</span></p>
+      </div>
+      <canvas id="report-chart" width="600" height="300"></canvas>
+    </section>
+  </main>
+
+  <footer>
+    <p>Advanced Web Programming - Tutorial Implementation</p>
+  </footer>
+
+  <!-- Main JS logic -->
+  <script src="app.js"></script>
+</body>
+</html>

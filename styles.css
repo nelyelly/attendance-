@@ -1,0 +1,224 @@
+:root {
+  --green: #7ce38b;
+  --yellow: #ffd966;
+  --red: #ff8080;
+  --accent: #2d5a4d;
+  --accent-light: #4a9b82;
+  --muted: #666;
+  --bg: #fff9fa;
+}
+
+/* Basic layout */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: #111;
+}
+
+header {
+  background: var(--accent);
+  color: #fff;
+  padding: 14px 20px;
+  border-bottom: 3px solid #ff85a2;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+nav a {
+  color: #fff;
+  margin-right: 12px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #ffb6c1;
+}
+
+/* Card */
+main {
+  max-width: 1100px;
+  margin: 18px auto;
+  padding: 18px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(255, 133, 162, 0.12);
+  border: 1px solid #ffe6ea;
+}
+
+/* Headings */
+h2 {
+  color: var(--accent);
+  border-bottom: 3px solid #ffb6c1;
+  padding-bottom: 6px;
+  margin-top: 0;
+}
+
+/* Table */
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.attendance-table th,
+.attendance-table td {
+  border: 1px solid #f0d4dc;
+  padding: 6px;
+  text-align: center;
+  background: transparent;
+}
+
+/* Header background */
+.attendance-table thead th {
+  background: #f8f0f2;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ROW COLORS: KEEPING THE ORIGINAL 3 COLORS FOR STUDENT LEVELS */
+tr.row-good td {
+  background: rgba(122, 240, 139, 0.61) !important;
+}
+
+tr.row-warning td {
+  background: rgba(228, 192, 84, 0.781) !important;
+}
+
+tr.row-bad td {
+  background: rgba(207, 68, 68, 0.685) !important;
+}
+
+
+/* message color to match severity */
+tr.row-good .message-cell { color: #075f26; font-weight: 600; }
+tr.row-warning .message-cell { color: #7a5700; font-weight: 600; }
+tr.row-bad .message-cell { color: #7a0a0a; font-weight: 600; }
+
+/* Hover focus for rows */
+.student-row:hover {
+  outline: 2px solid rgba(248, 113, 145, 0.541);
+  transform: translateY(-1px);
+  transition: all 0.12s ease;
+  background: rgba(151, 1, 23, 0.05) !important;
+}
+
+
+/* Controls and buttons (smaller) */
+.controls { margin: 10px 0; text-align: left; }
+
+button {
+  background: var(--accent-light);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin: 4px 6px 4px 0;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(255, 133, 162, 0.2);
+}
+
+button:hover { 
+  background: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 133, 162, 0.3);
+}
+
+/* Form */
+.form-row { margin-bottom: 10px; max-width: 420px; }
+
+.form-row input {
+  padding: 7px;
+  border: 1px solid #f0d4dc;
+  border-radius: 8px;
+  width: 100%;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+.form-row input:focus {
+  outline: none;
+  border-color: #ff85a2;
+  box-shadow: 0 0 0 3px rgba(255, 133, 162, 0.1);
+}
+
+.error { color: #b91c1c; font-size: 0.85rem; }
+
+.confirmation {
+  color: #2d5a4d;
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+/* small responsive tweaks */
+@media (max-width: 900px) {
+  main { padding: 12px; }
+  .attendance-table th, .attendance-table td {
+    padding: 5px;
+    font-size: 0.85rem;
+  }
+  button { padding: 6px 8px; font-size: 0.82rem; }
+}
+
+/* Search and Sort Styles */
+.search-sort-controls {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #fef8f9;
+    border-radius: 12px;
+    border: 1px solid #f4e4e9;
+    box-shadow: 0 2px 8px rgba(255, 133, 162, 0.08);
+}
+
+.sort-buttons {
+    margin: 10px 0;
+}
+
+.sort-buttons button {
+    margin-right: 10px;
+}
+
+.sort-message {
+    font-style: italic;
+    color: #8b6474;
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+#search-name {
+    padding: 8px;
+    border: 1px solid #f0d4dc;
+    border-radius: 8px;
+    width: 300px;
+    max-width: 100%;
+    background: #fff;
+    transition: all 0.2s ease;
+}
+
+#search-name:focus {
+    outline: none;
+    border-color: #ff85a2;
+    box-shadow: 0 0 0 3px rgba(255, 133, 162, 0.1);
+}
+
+/* Add some floral touches */
+.attendance-table thead th:first-child {
+  border-top-left-radius: 8px;
+}
+
+.attendance-table thead th:last-child {
+  border-top-right-radius: 8px;
+}
