@@ -1,0 +1,8 @@
+[2025-11-23 07:58:37] Database connection failed: SQLSTATE[HY000] [1049] Base 'student_attendance' inconnue
+[2025-11-23 08:00:55] Database connection failed: SQLSTATE[HY000] [1049] Base 'student_attendance' inconnue
+[2025-11-23 08:00:57] Database connection failed: SQLSTATE[HY000] [1049] Base 'student_attendance' inconnue
+[2025-11-23 08:01:19] Database connection failed: SQLSTATE[HY000] [1049] Base 'student_attendance' inconnue
+[2025-11-23 08:04:01] Database connection failed: SQLSTATE[HY000] [1049] Base 'student_attendance' inconnue
+[2025-11-23 08:04:07] Database connection failed: SQLSTATE[HY000] [1049] Base 'student_attendance' inconnue
+[2025-11-23 08:13:38] Database connection failed: SQLSTATE[HY000] [1049] Base 'student_attendance' inconnue
+[2025-11-23 08:27:05] Database creation failed: SQLSTATE[42000]: Syntax error or access violation: 1064 Erreur de syntaxe près de '' à la ligne 1
