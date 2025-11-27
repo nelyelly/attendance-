@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost/attendance/test_connection.php",
+            "url": "http://localhost/attendance/add_student.php",
             "webRoot": "${workspaceFolder}"
         }
     ]
