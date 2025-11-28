@@ -175,7 +175,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1>Attendance System</h1>
         <nav>
            <a href="index.html">Home</a>        
-           <a href="#add-student">Add Student</a>
            <a href="add_student_db.php">Add Student (db)</a>     
            <a href="add_student.php">Add Student (jk)</a>        
            <a href="list_students.php">List Students</a>

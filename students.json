@@ -1,8 +1,17 @@
 [
-    
     {
         "student_id": "31602201",
         "name": "nelya zaaboub",
+        "group": "4"
+    },
+    {
+        "student_id": "31602201",
+        "name": "Nelya",
+        "group": "4"
+    },
+    {
+        "student_id": "541545487",
+        "name": "ljkhbqcsl",
         "group": "4"
     }
 ]
